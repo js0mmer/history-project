@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: whitesmoke;
+    color: #363b3e;
+}
+
+#img {
+    height: 500px;
+    background-image: url(images/background.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+#img h1, #img h2 {
+    color: white;
+    font-weight: 600;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    margin-top: auto;
+}
+
+#topbar {
+    background-color: white;
+    padding-left: 10px;
+    padding-top: 10px;
+    width: 100%;
+    position: fixed;
+    border-bottom: 1px solid #d8d8d8;
+    z-index: 10;
+}
+
+#topbar_img {
+    background-image: url(images/logo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 33px;
+    width: 390px;
+    margin-bottom: 7px;
+    cursor: pointer;
+}
+
+#body {
+    width: 60%;
+    margin: auto;
+    text-indent: 2.0em;
+    overflow: hidden;
+}
+
+#slideshow {
+    height: 450px;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#footer {
+    width: 100%;
+    background-color: white;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    text-align: center;
+    border-top: 1px solid #d8d8d8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+
+.center {
+    text-align: center;
+}
