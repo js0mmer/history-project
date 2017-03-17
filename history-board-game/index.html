@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Board Game</title>
+        <link rel="stylesheet" href="http://usewing.ml/dist/wing.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="main" class="div">
+            <h1>Technological Advances</h1>
+            <div class="button" onclick="play()"><h5>Play</h5></div>
+        </div>
+        <p id="watermark">Made by Jacob Sommer</p>
+        <div id="players" class="div" style="opacity: 0;">
+            <h1>How many players?</h1>
+            <select id="player-form" placeholder="Select One" style="width: 500px; margin: auto;">
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+            <input type="submit" onclick="submitPlayers()">
+        </div>
+        <div id="game" class="div" style="opacity: 0;">
+            <table>
+                <tr>
+                    <th><div id="3" class="square"></div></th>
+                    <th><div id="4" class="square"></div></th>
+                    <th><div id="5" class="square"></div></th>
+                    <th></th>
+                    <th><div id="13" class="square"></div></th>
+                    <th><div id="14" class="square"></div></th>
+                    <th><div id="15" class="square"></div></th>
+                </tr>
+                <tr>
+                    <th><div id="2" class="square"></div></th>
+                    <th></th>
+                    <th><div id="6" class="square"></div></th>
+                    <th></th>
+                    <th><div id="12" class="square"></div></th>
+                    <th></th>
+                    <th><div id="16" class="square"></div></th>
+                </tr>
+                <tr>
+                    <th><div id="1" class="square"></div></th>
+                    <th></th>
+                    <th><div id="7" class="square"></div></th>
+                    <th></th>
+                    <th><div id="11" class="square"></div></th>
+                    <th></th>
+                    <th><div id="17" class="square"></div></th>
+                </tr>
+                <tr>
+                    <th><div id="0" class="square"></div></th>
+                    <th></th>
+                    <th><div id="8" class="square"></div></th>
+                    <th><div id="9" class="square"></div></th>
+                    <th><div id="10" class="square"></div></th>
+                    <th></th>
+                    <th><div id="18" class="square"></div></th>
+                </tr>
+            </table>
+        </div>
+    </body>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="main.js"></script>
+</html>
