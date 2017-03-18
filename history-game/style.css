@@ -6,7 +6,7 @@ html, body {
 
 .button {
     position: relative;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     margin: auto;
     border: 1px solid black;
@@ -28,7 +28,7 @@ html, body {
 }
 
 .div {
-    height: auto;
+    height: 100%;
     width: 100%;
     text-align: center;
     margin: auto;
@@ -41,9 +41,13 @@ html, body {
 
 .div h1, h3 {
     position: relative;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     margin-top: auto;
+}
+
+#players {
+    height: auto;
 }
 
 .square {
@@ -64,11 +68,40 @@ html, body {
     height: 20px;
 }
 
-table {
+#die {
+    width: 50px;
+    height: 50px;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
     margin: auto;
+    background-image: url("images/die_0.png");
+}
+
+#answer0, #answer1, #answer2, #answer3 {
+    height: 75px;
+    width: 500px;
+} 
+
+table {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+}
+
+.button p {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#message {
+    position: fixed;
+}
+
+#player-form {
+    width: 500px;
 }
 
 p {

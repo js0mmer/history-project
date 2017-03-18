@@ -14,7 +14,7 @@
         <p id="watermark">Made by Jacob Sommer</p>
         <div id="players" class="div" style="opacity: 0;">
             <h1>How many players?</h1>
-            <select id="player-form" placeholder="Select One" style="width: 500px; margin: auto;">
+            <select id="player-form" placeholder="Select One">
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
@@ -51,17 +51,60 @@
                     <th><div id="17" class="square"></div></th>
                 </tr>
                 <tr>
-                    <th><div id="0" class="square"></div></th>
+                    <th><div id="0" class="square" style="background-color: lime;"></div></th>
                     <th></th>
                     <th><div id="8" class="square"></div></th>
                     <th><div id="9" class="square"></div></th>
                     <th><div id="10" class="square"></div></th>
                     <th></th>
-                    <th><div id="18" class="square"></div></th>
+                    <th><div id="18" class="square" style="background-color: yellow;"></div></th>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th><h3>It&#39;s <span id="player" style="color: red">Player 1</span>&#39;s turn</h3></th>
+                    <th><div id="die" onclick="rolldie()"></div></th>
+                </tr>
+                <tr>
+                    <th><h1 id="question" style="display: none;">What was _?</h1></th>
+                </tr>
+            </table>
+            <table id="answers" style="display: none;">
+                <tr>
+                    <th><div id="answer0" class="button" onclick="answer(0)"></div></th>
+                    <th><div id="answer1" class="button" onclick="answer(1)"></div></th>
+                </tr>
+                <tr>
+                <tr>
+                    <th><div id="answer2" class="button" onclick="answer(2)"></div></th>
+                    <th><div id="answer3" class="button" onclick="answer(3)"></div></th>
                 </tr>
             </table>
         </div>
+        <div id="message" class="div" style="opacity: 0;">
+            <h1 id="message-text"></h1>
+        </div>
     </body>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript">
+        for(var i = 1; i < 18; i++) {
+            // 4 and 12 = free choice
+            // 8 and 16 = free square
+            if(i == 4 || i == 12) {
+                document.getElementById(i).style.backgroundColor = "cyan";
+                continue;
+            } else if(i == 8 || i == 16) {
+                document.getElementById(i).style.backgroundColor = "magenta";
+                continue;
+            }
+            
+            if(((i / 2) + "").includes(".")) {
+                // invention
+                document.getElementById(i).style.backgroundColor = "orange";
+            } else {
+                // inventor
+                document.getElementById(i).style.backgroundColor = "lightblue";
+            }
+        }
+    </script>
 </html>
