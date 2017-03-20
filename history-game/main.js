@@ -42,6 +42,7 @@ function rolldie() {
     dieRolled = true;
     
     if(players[turn].position + i >= 18) {
+        players[turn].movePlayerTo(18);
         showMessage("Player " + (turn + 1) + " has won!", "green", "bold");
         return;
     }
