@@ -19,7 +19,7 @@ var questions1 = ["What was the telegraph?", "What was morse code?", "What was t
 var questions2 = ["What invention did Samuel F.B. Morse create?", "What invention did Cyrus McCormick make?", "What invention by John Deere improved farming?", "What invention did Isaac Singer improve?", "What invention by Elias Howe made life at home easier?", "What invention did Alfred Lewis Vail create?", "What invention did Walter Hunt create?"];
 var answers1 = ["The first way of instant long distance communication.", "The way of communicating on the telegraph.", "A machine that cut and harvest grains much faster.", "They did not need to be placed near a source of water. They could be built anywhere.", "A telegraph line running across the entire U.S.", "Steel plows and the Mechanical Reaper.", "Steam powered factories could be built anywhere so companies started building them near cities. People moved to cities to get factory jobs.", "Matches, the sewing machine, the safety pin, iceboxes and iron cookstoves"];
 var answers2 = ["The Telegraph", "The Mechanical Reaper", "Steel Plows", "The Sewing Machine", "The Sewing Machine", "Morse Code", "The Safety Pin"];
-var colors = ["red", "blue", "yellow", "green", "orange", "purple", "pink", "white", "black"];
+var colors = ["red", "blue", "yellow", "green", "orange", "purple", "pink", "brown", "black"];
 
 function play() {
     shuffle(questions1, 1);
