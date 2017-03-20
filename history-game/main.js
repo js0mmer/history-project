@@ -52,12 +52,12 @@ function rolldie() {
     
     if(pos == 4 || pos == 12) {
         // 4 and 12 = free choice
-        showMessage("You got a free choice!");
+        showMessage("You got a free choice!", "black", "300");
         freeChoice = true
         showQuestion(3);
     } else if(pos == 8 || pos == 16) {
         // 8 and 16 = free square
-        showMessage("You got a free square!");
+        showMessage("You got a free square!", "black", "300");
         nextTurn();
     } else if(((pos / 2) + "").includes(".")) {
         // invention
