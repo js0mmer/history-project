@@ -90,6 +90,14 @@ table {
     margin: 0 auto;
 }
 
+table {
+    border-collapse: collapse;
+}
+
+table, tr, th {
+    border: none;
+}
+
 .button p {
     position: relative;
     top: 50%;
