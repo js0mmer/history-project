@@ -77,7 +77,45 @@ html, body {
 #answer0, #answer1, #answer2, #answer3 {
     height: 75px;
     width: 500px;
-} 
+}
+
+#answer0 {
+    background-color: red;
+    color:white;
+}
+
+#answer0:hover {
+    background-color: indianred;
+}
+
+#answer1 {
+    background-color: blue;
+    color:white;
+}
+
+#answer1:hover {
+    background-color: dodgerblue;
+}
+
+#answer2 {
+    background-color: limegreen;
+    color:white;
+}
+
+#answer2:hover {
+    background-color: lightgreen;
+    color: black;
+}
+
+#answer3 {
+    background-color: yellow;
+    color: black;
+}
+
+#answer3:hover {
+    background-color: #ffff82;
+    color: black;
+}
 
 table {
     position: relative;
@@ -106,15 +144,6 @@ table, tr, th {
 
 #player-form {
     width: 500px;
-}
-
-p {
-    position: relative;
-    top: 95%;
-    transform: translateY(-50%);
-    margin: auto;
-    width: 100%;
-    text-align: center;
 }
 
 #main {

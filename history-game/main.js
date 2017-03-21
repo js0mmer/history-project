@@ -14,17 +14,17 @@ var currentQuestion2 = 0;
 var correctAnswer;
 var freeChoice = false;
 var previousSpot;
+var questionType;
 var dieRolled = false;
 var questions1 = ["What was the telegraph?", "What was morse code?", "What was the mechanical reaper", "How did steam powered factories differ from water powered factories?", "What was the transcontinental telegraph line?", "What new inventions were made for farming?", "How did the shift to steam powered factories lead to growth in cities?", "What inventions made life at home easier?"];
 var questions2 = ["What invention did Samuel F.B. Morse create?", "What invention did Cyrus McCormick make?", "What invention by John Deere improved farming?", "What invention did Isaac Singer improve?", "What invention by Elias Howe made life at home easier?", "What invention did Alfred Lewis Vail create?", "What invention did Walter Hunt create?"];
-var answers1 = ["The first way of instant long distance communication.", "The way of communicating on the telegraph.", "A machine that cut and harvest grains much faster.", "They did not need to be placed near a source of water. They could be built anywhere.", "A telegraph line running across the entire U.S.", "Steel plows and the Mechanical Reaper.", "Steam powered factories could be built anywhere so companies started building them near cities. People moved to cities to get factory jobs.", "Matches, the sewing machine, the safety pin, iceboxes and iron cookstoves"];
+var answers1 = ["The first way of instant long distance communication.", "The way of communicating on the telegraph.", "A machine that cut and harvested grains much faster.", "They did not need to be placed near a source of water. They could be built anywhere.", "A telegraph line running across the entire U.S.", "Steel plows and the Mechanical Reaper.", "Steam powered factories could be built anywhere so companies started building them near cities. People moved to cities to get factory jobs.", "Matches, the sewing machine, the safety pin, iceboxes and iron cookstoves"];
 var answers2 = ["The Telegraph", "The Mechanical Reaper", "Steel Plows", "The Sewing Machine", "The Sewing Machine", "Morse Code", "The Safety Pin"];
-var colors = ["red", "blue", "yellow", "green", "orange", "purple", "pink", "brown", "black"];
+var colors = ["red", "blue", "yellow", "limegreen", "orange", "purple", "pink", "brown", "black"];
 
 function play() {
     shuffle(questions1, 1);
     shuffle(questions2, 2);
-    document.getElementById("watermark").style.display = "none";
     nextPage = document.getElementById("players");
     
     transitionPage();
@@ -43,7 +43,7 @@ function rolldie() {
     
     if(players[turn].position + i >= 18) {
         players[turn].movePlayerTo(18);
-        showMessage("Player " + (turn + 1) + " has won!", "green", "bold");
+        showMessage("Player " + (turn + 1) + " has won the game!", "limegreen", "bold", "forever");
         return;
     }
     
@@ -52,20 +52,22 @@ function rolldie() {
     
     if(pos == 4 || pos == 12) {
         // 4 and 12 = free choice
-        showMessage("You got a free choice!", "black", "300");
-        freeChoice = true
+        showMessage("You got a free choice!", "black", "400", 800);
+        freeChoice = true;
         showQuestion(3);
     } else if(pos == 8 || pos == 16) {
         // 8 and 16 = free square
-        showMessage("You got a free square!", "black", "300");
+        showMessage("You got a free square!", "black", "400", 800);
         nextTurn();
     } else if(((pos / 2) + "").includes(".")) {
         // invention
-        showMessage("You got an invention question!", "black", "300");
+        showMessage("You got an invention question!", "black", "400", 800);
+        questionType = 1;
         showQuestion(1);
     } else {
         // inventor
-        showMessage("You got an inventor question!", "black", "300");
+        showMessage("You got an inventor question!", "black", "400", 800);
+        questionType = 2;
         showQuestion(2);
     }
 }
@@ -77,9 +79,11 @@ function answer(i) {
     
     if(freeChoice) {
         if(i == 0 || i == 2) {
+            questionType = 1;
             showQuestion(1);
         } else {
             showQuestion(2);
+            questionType = 2;
         }
         
         freeChoice = false;
@@ -87,11 +91,17 @@ function answer(i) {
     }
     
     if(correctAnswer == i) {
-        showMessage("Correct!", "lime", "bold");
+        showMessage("Correct!", "limegreen", "bold", 800);
     } else {
-        showMessage("Incorrect", "red", "bold");
+        showMessage("Incorrect", "red", "bold", 2200);
+        if(questionType == 1) {
+            subMessage("The correct answer was: " + answers1[currentQuestion1 - 1]);
+        } else {
+            subMessage("The correct answer was: " + answers2[currentQuestion2 - 1]);
+        }
+        
         players[turn].movePlayerTo(previousSpot);
-    } 
+    }
     
     nextTurn();
 }
@@ -110,8 +120,9 @@ function nextTurn() {
     dieRolled = false;
 }
 
-function showMessage(message, color, bold) {
+function showMessage(message, color, bold, waitTime) {
     inFade = true;
+    document.getElementById("sub-message").style.display = "none";
     document.getElementById("message-text").innerHTML = message;
     document.getElementById("message-text").style.color = color;
     document.getElementById("message-text").style.fontWeight = bold;
@@ -129,7 +140,10 @@ function showMessage(message, color, bold) {
         if(mDiv.style.opacity >= 1) {
             mDiv.style.opacity = 1;
             
-            waitId = setInterval(wait, 800);
+            if(waitTime != "forever") {
+                waitId = setInterval(wait, waitTime);
+            }
+            
             clearInterval(fadeInId);
         }
     }
@@ -152,6 +166,11 @@ function showMessage(message, color, bold) {
             inFade = false;
         }
     }
+}
+
+function subMessage(msg) {
+    document.getElementById("sub-message").innerHTML = msg;
+    document.getElementById("sub-message").style.display = "block";
 }
 
 function showQuestion(type) {
