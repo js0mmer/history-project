@@ -124,18 +124,18 @@ table {
     margin: 0 auto;
 }
 
+.button p {
+    position: relative;
+    top: 29%;
+    transform: translateY(-50%);
+}
+
 table {
     border-collapse: collapse;
 }
 
 table, tr, th {
     border: none;
-}
-
-.button p {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 #message {
