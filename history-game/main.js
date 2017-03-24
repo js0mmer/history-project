@@ -1,7 +1,6 @@
 var fadePageId;
 var fadeInId;
 var fadeOutId;
-var waitId;
 var inFade = false;
 var page = document.getElementById("main");
 var nextPage;
@@ -79,11 +78,11 @@ function answer(i) {
     
     if(freeChoice) {
         if(i == 0 || i == 2) {
-            questionType = 1;
-            showQuestion(1);
-        } else {
-            showQuestion(2);
             questionType = 2;
+            showQuestion(2);
+        } else {
+            showQuestion(1);
+            questionType = 1;
         }
         
         freeChoice = false;
@@ -141,7 +140,7 @@ function showMessage(message, color, bold, waitTime) {
             mDiv.style.opacity = 1;
             
             if(waitTime != "forever") {
-                waitId = setInterval(wait, waitTime);
+                setTimeout(wait, waitTime);
             }
             
             clearInterval(fadeInId);
@@ -150,7 +149,6 @@ function showMessage(message, color, bold, waitTime) {
     
     function wait() {
         fadeOutId = setInterval(fadeOut, 30);
-        clearInterval(waitId);
     }
     
     function fadeOut() {
